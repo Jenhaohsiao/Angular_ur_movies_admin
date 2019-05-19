@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 
 const MaterialComponents = [
@@ -40,6 +41,7 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatSelectModule,
   MatAutocompleteModule,
+  MatTableModule,
 
 ];
 

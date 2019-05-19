@@ -9,6 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductComponent } from './product/product.component';
 import { CustomerComponent } from './customer/customer.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AdvertisingListComponent } from './advertising/advertising-list/advertising-list.component';
+import { AdvertisingEditComponent } from './advertising/advertising-edit/advertising-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +21,9 @@ import { CustomerComponent } from './customer/customer.component';
     HomeComponent,
     NavbarComponent,
     ProductComponent,
-    CustomerComponent
+    CustomerComponent,
+    AdvertisingListComponent,
+    AdvertisingEditComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +31,7 @@ import { CustomerComponent } from './customer/customer.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
