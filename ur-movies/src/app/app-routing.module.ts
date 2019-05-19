@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ProductComponent } from './product/product.component';
 import { AdvertisingListComponent } from './advertising/advertising-list/advertising-list.component';
-import { AdvertisingEditComponent } from './advertising/advertising-edit/advertising-edit.component';
+import { AdvertisingDetailComponent } from './advertising/advertising-detail/advertising-detail.component';
 
 const routes: Routes = [
   {
@@ -12,12 +12,17 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'advertising-list',
+    path: 'advertisings/list',
     component: AdvertisingListComponent
   },
   {
-    path: 'advertising-edit',
-    component: AdvertisingEditComponent
+    path: 'advertisings/:id/edit',
+    component: AdvertisingDetailComponent
+  },
+
+  {
+    path: 'advertisings/new',
+    component: AdvertisingDetailComponent
   },
   {
     path: 'customer',

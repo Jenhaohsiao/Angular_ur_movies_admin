@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductComponent } from './product/product.component';
@@ -12,7 +12,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AdvertisingListComponent } from './advertising/advertising-list/advertising-list.component';
-import { AdvertisingEditComponent } from './advertising/advertising-edit/advertising-edit.component';
+import { AdvertisingDetailComponent } from './advertising/advertising-detail/advertising-detail.component';
+
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { AdvertisingEditComponent } from './advertising/advertising-edit/adverti
     ProductComponent,
     CustomerComponent,
     AdvertisingListComponent,
-    AdvertisingEditComponent
+    AdvertisingDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import { AdvertisingEditComponent } from './advertising/advertising-edit/adverti
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

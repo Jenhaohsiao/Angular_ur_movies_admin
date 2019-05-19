@@ -10,7 +10,35 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+
+
 .sub-title {
   font-size: 30px;
   padding: 10px;
+}
+
+.button-bottom-right {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.button-bottom-left {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px
+}
+
+.form-container>* {
+  width: 100%;
+}
+
+.card-container {
+  margin: 10px 30px
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisingService } from '../advertising.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advertising-list',
@@ -14,7 +15,10 @@ export class AdvertisingListComponent implements OnInit {
   public displayedColumns: string[] = ['_id', 'title', 'description', 'startDate', 'endDate'];
 
 
-  constructor(private _advertisingService: AdvertisingService) { }
+  constructor(
+    private _advertisingService: AdvertisingService,
+    private _router: Router,
+  ) { }
 
   ngOnInit() {
     this.getList()
@@ -34,7 +38,15 @@ export class AdvertisingListComponent implements OnInit {
         }
 
       );
-
   }
 
+  createNew() {
+    console.log("Create New")
+    this._router.navigateByUrl('advertisings/new');
+  }
+
+  editItem(_id) {
+    console.log("Edit Item")
+    this._router.navigateByUrl('advertisings/' + _id + '/edit');
+  }
 }

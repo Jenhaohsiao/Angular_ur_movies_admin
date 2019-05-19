@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 const MaterialComponents = [
@@ -42,6 +44,9 @@ const MaterialComponents = [
   MatSelectModule,
   MatAutocompleteModule,
   MatTableModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+
 
 ];
 
