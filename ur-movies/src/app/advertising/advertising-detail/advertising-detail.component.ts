@@ -14,7 +14,8 @@ import { Observable } from 'rxjs';
 export class AdvertisingDetailComponent implements OnInit {
   private id: string;
   private isEdit = false;
-  private form: FormGroup;
+
+  form: FormGroup;
 
   constructor(
     private _advertisingService: AdvertisingService,

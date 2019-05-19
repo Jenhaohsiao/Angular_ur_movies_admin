@@ -12,8 +12,7 @@ export class AdvertisingListComponent implements OnInit {
   public advertisingList = [];
   public errorMsg;
 
-  public displayedColumns: string[] = ['_id', 'title', 'description', 'startDate', 'endDate'];
-
+  public displayedColumns: string[] = ['Id', 'title', 'description', 'startDate', 'endDate'];
 
   constructor(
     private _advertisingService: AdvertisingService,
@@ -45,8 +44,8 @@ export class AdvertisingListComponent implements OnInit {
     this._router.navigateByUrl('advertisings/new');
   }
 
-  editItem(_id) {
-    console.log("Edit Item")
-    this._router.navigateByUrl('advertisings/' + _id + '/edit');
+  editItem(_item) {
+    console.log("Edit Item:" + _item)
+    this._router.navigateByUrl('advertisings/' + _item._id + '/edit');
   }
 }

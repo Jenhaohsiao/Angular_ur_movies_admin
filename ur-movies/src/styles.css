@@ -14,7 +14,6 @@ body {
 
 .sub-title {
   font-size: 30px;
-  padding: 10px;
 }
 
 .button-bottom-right {
@@ -41,4 +40,18 @@ body {
 
 .card-container {
   margin: 10px 30px
+}
+
+.table-row-style:hover {
+  background: #cecece;
+}
+
+.table-row-style:active {
+  background: #efefef;
+}
+
+.content-container {
+
+  padding: 10px;
+
 }
