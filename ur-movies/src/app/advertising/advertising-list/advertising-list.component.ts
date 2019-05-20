@@ -1,22 +1,32 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdvertisingService } from '../advertising.service';
 import { Router } from '@angular/router';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Advertising } from '../advertising.model';
-
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-advertising-list',
   templateUrl: './advertising-list.component.html',
-  styleUrls: ['./advertising-list.component.css']
+  styleUrls: ['./advertising-list.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class AdvertisingListComponent implements OnInit {
 
   public displayedColumns: string[] = ['Id', 'title', 'description', 'startDate', 'endDate'];
+
+  public columnsToDisplay: string[] = ['title', 'startDate', 'endDate'];
+
   public errorMsg;
   public advertisingList = new MatTableDataSource<Advertising>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+
 
 
   constructor(
@@ -27,8 +37,11 @@ export class AdvertisingListComponent implements OnInit {
   ngOnInit() {
     this.getList();
     this.advertisingList.paginator = this.paginator;
-
+    console.log("init advertisingList:", this.advertisingList)
   }
+
+
+
 
   getList() {
 
@@ -36,9 +49,7 @@ export class AdvertisingListComponent implements OnInit {
       .subscribe(
         data => {
           this.advertisingList.data = data;
-          this.advertisingList.sort = this.sort;
-
-          console.log("this.advertisingList:", this.advertisingList)
+          console.log("advertisingList:", this.advertisingList)
         },
 
         error => {
@@ -67,3 +78,4 @@ export class AdvertisingListComponent implements OnInit {
     this._router.navigateByUrl('advertisings/' + _item._id + '/edit');
   }
 }
+

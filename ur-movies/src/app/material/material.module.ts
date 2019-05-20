@@ -22,7 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material';
-
+import { MatSortModule } from '@angular/material/sort';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -48,13 +48,12 @@ const MaterialComponents = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatPaginatorModule,
-
-
+  MatSortModule,
 
 ];
 
 @NgModule({
-  imports: [MaterialComponents],
-  exports: [MaterialComponents]
+  imports: [MaterialComponents,],
+  exports: [MaterialComponents,]
 })
 export class MaterialModule { }
