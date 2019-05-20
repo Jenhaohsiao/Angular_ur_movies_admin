@@ -21,6 +21,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material';
 
 
 const MaterialComponents = [
@@ -46,6 +47,8 @@ const MaterialComponents = [
   MatTableModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatPaginatorModule,
+
 
 
 ];

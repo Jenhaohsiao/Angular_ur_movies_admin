@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdvertisingService } from '../advertising.service';
 import { Router } from '@angular/router';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Advertising } from '../advertising.model';
+
 
 @Component({
   selector: 'app-advertising-list',
@@ -9,10 +12,12 @@ import { Router } from '@angular/router';
 })
 export class AdvertisingListComponent implements OnInit {
 
-  public advertisingList = [];
-  public errorMsg;
-
   public displayedColumns: string[] = ['Id', 'title', 'description', 'startDate', 'endDate'];
+  public errorMsg;
+  public advertisingList = new MatTableDataSource<Advertising>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
 
   constructor(
     private _advertisingService: AdvertisingService,
@@ -20,14 +25,19 @@ export class AdvertisingListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getList()
+    this.getList();
+    this.advertisingList.paginator = this.paginator;
+
   }
 
   getList() {
+
     this._advertisingService.getAdvertisings()
       .subscribe(
         data => {
-          this.advertisingList = data
+          this.advertisingList.data = data;
+          this.advertisingList.sort = this.sort;
+
           console.log("this.advertisingList:", this.advertisingList)
         },
 
@@ -39,13 +49,21 @@ export class AdvertisingListComponent implements OnInit {
       );
   }
 
+  applyFilter(filterValue: string) {
+    // this.advertisingList.filter = filterValue.trim().toLowerCase();
+
+    // if (this.advertisingList.paginator) {
+    //   this.advertisingList.paginator.firstPage();
+    // }
+  }
+
+
   createNew() {
     console.log("Create New")
     this._router.navigateByUrl('advertisings/new');
   }
 
   editItem(_item) {
-    console.log("Edit Item:" + _item)
     this._router.navigateByUrl('advertisings/' + _item._id + '/edit');
   }
 }
