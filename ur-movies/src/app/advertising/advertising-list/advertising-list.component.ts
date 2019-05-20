@@ -19,7 +19,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class AdvertisingListComponent implements OnInit {
 
-  public columnsHeader: string[] = ['Title', 'Start Date', 'End Date'];
 
   public columnsToDisplay: string[] = ['title', 'startDate', 'endDate'];
 
@@ -40,9 +39,6 @@ export class AdvertisingListComponent implements OnInit {
     console.log("init advertisingList:", this.advertisingList)
   }
 
-
-
-
   getList() {
 
     this._advertisingService.getAdvertisings()
@@ -56,18 +52,8 @@ export class AdvertisingListComponent implements OnInit {
           this.errorMsg = error,
             console.log("this.error:", this.errorMsg)
         }
-
       );
   }
-
-  applyFilter(filterValue: string) {
-    // this.advertisingList.filter = filterValue.trim().toLowerCase();
-
-    // if (this.advertisingList.paginator) {
-    //   this.advertisingList.paginator.firstPage();
-    // }
-  }
-
 
   createNew() {
     console.log("Create New")
@@ -77,5 +63,10 @@ export class AdvertisingListComponent implements OnInit {
   editItem(_item) {
     this._router.navigateByUrl('advertisings/' + _item._id + '/edit');
   }
+
+  applyFilter(filterValue: string) {
+    this.advertisingList.filter = filterValue.trim().toLowerCase();
+  }
+
 }
 

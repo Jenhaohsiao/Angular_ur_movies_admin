@@ -24,7 +24,7 @@ import { AdvertisingDetailComponent } from './advertising/advertising-detail/adv
     ProductComponent,
     CustomerComponent,
     AdvertisingListComponent,
-    AdvertisingDetailComponent
+    AdvertisingDetailComponent,
   ],
   imports: [
     BrowserModule,
