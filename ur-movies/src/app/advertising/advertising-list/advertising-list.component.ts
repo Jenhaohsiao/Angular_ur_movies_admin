@@ -19,7 +19,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class AdvertisingListComponent implements OnInit {
 
-  public displayedColumns: string[] = ['Id', 'title', 'description', 'startDate', 'endDate'];
+  public columnsHeader: string[] = ['Title', 'Start Date', 'End Date'];
 
   public columnsToDisplay: string[] = ['title', 'startDate', 'endDate'];
 
