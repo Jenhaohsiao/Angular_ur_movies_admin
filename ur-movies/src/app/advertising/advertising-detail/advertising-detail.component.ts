@@ -5,6 +5,7 @@ import { Advertising } from '../advertising.model';
 import { FormBuilder, Form, Validators, FormGroup } from '@angular/forms';
 import { instantiateDefaultStyleNormalizer } from '@angular/platform-browser/animations/src/providers';
 import { Observable } from 'rxjs';
+import { S3UploaderService } from 'src/app/services/s3-uploader.service';
 
 @Component({
   selector: 'app-advertising-detail',
@@ -14,6 +15,8 @@ import { Observable } from 'rxjs';
 export class AdvertisingDetailComponent implements OnInit {
   private id: string;
   private isEdit = false;
+  public selectedFiles: FileList;
+
 
   form: FormGroup;
 
@@ -21,7 +24,9 @@ export class AdvertisingDetailComponent implements OnInit {
     private _advertisingService: AdvertisingService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    private fromBuilder: FormBuilder) { }
+    private fromBuilder: FormBuilder,
+    private S3UploaderService: S3UploaderService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -67,6 +72,7 @@ export class AdvertisingDetailComponent implements OnInit {
     }
   }
 
+
   private initForm(): void {
     this.form = this.fromBuilder.group({
       _id: '',
@@ -76,4 +82,15 @@ export class AdvertisingDetailComponent implements OnInit {
       endDate: ''
     })
   }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.S3UploaderService.uploadFile(file);
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+
 }
