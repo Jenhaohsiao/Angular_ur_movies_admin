@@ -3,7 +3,6 @@ import { AdvertisingService } from '../advertising.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Advertising } from '../advertising.model';
 import { FormBuilder, Form, Validators, FormGroup } from '@angular/forms';
-import { instantiateDefaultStyleNormalizer } from '@angular/platform-browser/animations/src/providers';
 import { Observable } from 'rxjs';
 import { S3UploaderService } from 'src/app/services/s3-uploader.service';
 

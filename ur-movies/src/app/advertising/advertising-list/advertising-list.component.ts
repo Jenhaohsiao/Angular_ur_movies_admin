@@ -36,7 +36,6 @@ export class AdvertisingListComponent implements OnInit {
   ngOnInit() {
     this.getList();
     this.advertisingList.paginator = this.paginator;
-    console.log("init advertisingList:", this.advertisingList)
   }
 
   getList() {
@@ -45,7 +44,6 @@ export class AdvertisingListComponent implements OnInit {
       .subscribe(
         data => {
           this.advertisingList.data = data;
-          console.log("advertisingList:", this.advertisingList)
         },
 
         error => {

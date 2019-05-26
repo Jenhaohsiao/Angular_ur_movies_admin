@@ -10,7 +10,9 @@ export interface Advertising {
 
     endDate: Date;
 
-    image: String;
+    imageUrl: String;
+
+    linkUrl:String;
 
 }
 
