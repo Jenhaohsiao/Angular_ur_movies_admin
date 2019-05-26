@@ -84,7 +84,8 @@ export class AdvertisingDetailComponent implements OnInit {
 
   upload() {
     const file = this.selectedFiles.item(0);
-    this.S3UploaderService.uploadFile(file);
+    const URL = this.S3UploaderService.uploadFile(file);
+    console.log("After upload, URL:", URL);
   }
 
   selectFile(event) {

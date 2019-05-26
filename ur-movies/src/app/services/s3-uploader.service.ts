@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
+
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,13 +11,16 @@ export class S3UploaderService {
 
   constructor() { }
 
+  private s3AccessKeyId = `${environment.s3AccessKeyId}`;
+  private s3SecretAccessKey = `${environment.s3SecretAccessKey}`;
+
 
   uploadFile(file) {
     const contentType = file.type;
     const bucket = new S3(
       {
-        accessKeyId: ' ',
-        secretAccessKey: ' ',
+        accessKeyId: this.s3AccessKeyId,
+        secretAccessKey: this.s3SecretAccessKey,
         region: 'us-east-1'
       }
     );

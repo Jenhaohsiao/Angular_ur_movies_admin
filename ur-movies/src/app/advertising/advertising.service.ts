@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs/';
 import { catchError } from 'rxjs/operators';
 import { Advertising } from './advertising.model';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,9 @@ export class AdvertisingService {
 
   private apiRoute = `${environment.baseUrl}/api/advertisings`;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   errorHandler(error: HttpErrorResponse) {
     return throwError(error.message || "Server Error")
