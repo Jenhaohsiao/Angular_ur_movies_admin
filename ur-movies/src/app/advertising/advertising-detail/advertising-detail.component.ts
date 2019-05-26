@@ -15,9 +15,7 @@ export class AdvertisingDetailComponent implements OnInit {
   private id: string;
   private isEdit = false;
   public selectedFiles: FileList;
-
-
-  form: FormGroup;
+  public form: FormGroup;
 
   constructor(
     private _advertisingService: AdvertisingService,
@@ -44,7 +42,8 @@ export class AdvertisingDetailComponent implements OnInit {
       title: detail.title,
       description: detail.description,
       startDate: detail.startDate,
-      endDate: detail.endDate
+      endDate: detail.endDate,
+      imageUrl: detail.imageUrl,
     });
   }
 
@@ -57,7 +56,7 @@ export class AdvertisingDetailComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form.value);
+    console.log("save:", this.form.value);
     if (this.isEdit) {
       this._advertisingService.updateAdvertising(this.form.value)
         .subscribe(() => {
@@ -78,14 +77,18 @@ export class AdvertisingDetailComponent implements OnInit {
       title: ['', Validators.required],
       description: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
+      imageUrl: '',
     })
   }
 
-  upload() {
+  async upload() {
     const file = this.selectedFiles.item(0);
-    const URL = this.S3UploaderService.uploadFile(file);
+    const URL = await this.S3UploaderService.uploadFile(file);
     console.log("After upload, URL:", URL);
+    this.form.value.imageUrl = URL;
+    console.log("this.form.value.imageUrl:", this.form.value.imageUrl)
+
   }
 
   selectFile(event) {
