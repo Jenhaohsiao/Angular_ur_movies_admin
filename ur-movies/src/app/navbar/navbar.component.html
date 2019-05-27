@@ -1,16 +1,24 @@
 <mat-toolbar color="primary" class="nav-button-row">
   <mat-toolbar-row>
-    <img src="../../assets/image/logo/ur_movies_logo_w.png" alt="Logo" style="width: 200px;">
+    <img lass="menu-logo" src="../../assets/image/logo/ur_movies_logo_w.png" alt="Logo">
+    <span class="menu-subtitle">Admin System</span>
     <button routerLink="/" mat-raised-button>Dashboard</button>
-    <button routerLink="/advertisings/list" mat-raised-button>Advertising List</button>
-    <button routerLink="/customer" mat-raised-button>Customer</button>
-    <button routerLink="/product" mat-raised-button>Product</button>
-    <button routerLink="/" mat-raised-button>Report</button>
-    <button routerLink="/" mat-raised-button>Sign In</button>
-    <button routerLink="/" mat-raised-button>Sign Out</button>
-    <button routerLink="/" mat-raised-button>Register</button>
-    <button routerLink="/" mat-raised-button>Profile</button>
-    <button routerLink="/" mat-raised-button>Setting</button>
+
+
+    <button mat-button [matMenuTriggerFor]="managementMenu">Management</button>
+    <mat-menu #managementMenu="matMenu">
+      <button mat-menu-item routerLink="/advertisings/list"> Advertising</button>
+      <button mat-menu-item routerLink="/customer"> Customer</button>
+      <button mat-menu-item routerLink="/product"> Product</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="profileMenu">Profile</button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item routerLink="/customer"> My Info</button>
+      <button mat-menu-item routerLink="/customer"> Register</button>
+      <button mat-menu-item routerLink="/customer"> Sign In</button>
+      <button mat-menu-item routerLink="/customer"> Sign Out</button>
+    </mat-menu>
 
   </mat-toolbar-row>
 </mat-toolbar>
