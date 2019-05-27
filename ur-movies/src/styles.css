@@ -58,3 +58,8 @@ body {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.image-preview-200-150 {
+  max-width: 200px;
+  max-height: 150px;
+}

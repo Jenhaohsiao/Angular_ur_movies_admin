@@ -1,52 +1,58 @@
-<form [formGroup]="form">
-  <h3 class="sub-title">
-    Advertising Edit
-  </h3>
-  <mat-card class="card-container ">
-    <div class="form-container">
+<div class="content-container">
 
-      <mat-form-field>
-        <!-- <input matInput placeholder="Title" value="{{item.title}}"> -->
-        <input formControlName="title" matInput placeholder="Title" name="title">
-      </mat-form-field>
+  <form [formGroup]="form">
+    <h3 class="sub-title">
+      Advertising Edit
+    </h3>
+    <mat-card class="card-container ">
+      <div class="form-container">
 
-      <mat-form-field>
-        <textarea formControlName="description" matInput placeholder="Description"></textarea>
-      </mat-form-field>
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Name" name="name">
+        </mat-form-field>
 
-      <mat-form-field>
-        <input formControlName="startDate" matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
-        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #startDatePicker></mat-datepicker>
-      </mat-form-field>
+        <mat-form-field>
+          <input formControlName="title" matInput placeholder="Title" name="title">
+        </mat-form-field>
 
-      <mat-form-field>
-        <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" placeholder="End Date">
-        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #endDatePicker></mat-datepicker>
-      </mat-form-field>
+        <mat-form-field>
+          <textarea formControlName="description" matInput placeholder="Description"></textarea>
+        </mat-form-field>
 
-      <div> <img src="{{form.value.imageUrl}} " alt="Italian Trulli"></div>
+        <mat-form-field>
+          <input formControlName="startDate" matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
 
+        <mat-form-field>
+          <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" placeholder="End Date">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+
+        <div> <img class="image-preview-200-150" src="{{form.value.imageUrl}} " alt="Italian Trulli"></div>
+
+      </div>
+
+      <div>
+        <label class="btn btn-default">
+          <input type="file" (change)="selectFile($event)">
+        </label>
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">Upload Image</button>
+      </div>
+    </mat-card>
+
+    <div class="button-bottom-left">
+      <button mat-fab color="primary" (click)="back()">
+        <mat-icon aria-label="add new">arrow_back</mat-icon>
+      </button>
     </div>
 
-    <div>
-      <label class="btn btn-default">
-        <input type="file" (change)="selectFile($event)">
-      </label>
-      <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+    <div class="button-bottom-right">
+      <button mat-fab color="primary" [disabled]="!form.valid" (click)="save()">
+        <mat-icon aria-label="add new">save</mat-icon>
+      </button>
     </div>
-  </mat-card>
-
-  <div class="button-bottom-left">
-    <button mat-fab color="primary" (click)="back()">
-      <mat-icon aria-label="add new">arrow_back</mat-icon>
-    </button>
-  </div>
-
-  <div class="button-bottom-right">
-    <button mat-fab color="primary" [disabled]="!form.valid" (click)="save()">
-      <mat-icon aria-label="add new">save</mat-icon>
-    </button>
-  </div>
-</form>
+  </form>
+</div>

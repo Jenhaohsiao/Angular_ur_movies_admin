@@ -39,6 +39,7 @@ export class AdvertisingDetailComponent implements OnInit {
   private setDetail(detail: Advertising) {
     this.form.setValue({
       _id: detail._id,
+      name: detail.name,
       title: detail.title,
       description: detail.description,
       startDate: detail.startDate,
@@ -73,16 +74,18 @@ export class AdvertisingDetailComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.fromBuilder.group({
+
       _id: '',
+      name: ['', Validators.required],
       title: ['', Validators.required],
       description: '',
       startDate: '',
       endDate: '',
-      imageUrl: '',
+      imageUrl: 'http://fakeimg.pl/200x150/?text=No Image Yet',
     })
   }
 
-  async upload() {
+  async uploadImage() {
     const file = this.selectedFiles.item(0);
     const URL = await this.S3UploaderService.uploadFile(file);
     console.log("After upload, URL:", URL);

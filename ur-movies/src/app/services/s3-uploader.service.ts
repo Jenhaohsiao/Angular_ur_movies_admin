@@ -27,9 +27,11 @@ export class S3UploaderService {
           region: 'us-east-1'
         }
       );
+
+      const timeInMs = Date.now();
       const params = {
         Bucket: 'ur-movie',
-        Key: file.name,
+        Key: timeInMs + "-" + file.name,
         Body: file,
         ACL: 'public-read',
         ContentType: contentType

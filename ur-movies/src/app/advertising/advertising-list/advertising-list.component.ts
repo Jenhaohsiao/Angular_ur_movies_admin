@@ -20,7 +20,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class AdvertisingListComponent implements OnInit {
 
 
-  public columnsToDisplay: string[] = ['title', 'startDate', 'endDate'];
+  public columnsToDisplay: string[] = ['name', 'startDate', 'endDate'];
 
   public errorMsg;
   public advertisingList = new MatTableDataSource<Advertising>();

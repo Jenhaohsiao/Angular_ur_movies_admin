@@ -11,9 +11,9 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="advertisingList" multiTemplateDataRows class=" list-table">
 
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
-        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="startDate">
@@ -33,12 +33,12 @@
           <div id="table-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
             <div>
               <div class="table-element-diagram">
-                <div> <img src="http://fakeimg.pl/200x150/ " alt="Italian Trulli"></div>
+                <div> <img class="image-preview-200-150" src="{{element.imageUrl}}" alt="image preview"></div>
               </div>
             </div>
 
             <div class="table-description-section">
-              <div><span class="table-id-section">ID: {{element._id}} </span></div>
+              <div><span class="table-title-section"><b>Title: {{element.title}} </b></span></div>
               <div>{{element.description}}</div>
             </div>
             <div>
