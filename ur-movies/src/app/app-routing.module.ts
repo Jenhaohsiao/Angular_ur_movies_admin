@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ProductComponent } from './product/product.component';
 import { AdvertisingListComponent } from './advertising/advertising-list/advertising-list.component';
 import { AdvertisingDetailComponent } from './advertising/advertising-detail/advertising-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: DashboardComponent
   },
   {
     path: 'advertisings/list',

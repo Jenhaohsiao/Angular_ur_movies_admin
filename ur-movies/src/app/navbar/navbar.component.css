@@ -12,5 +12,7 @@ button {
   font-size: 15px;
   font-weight: 100;
   padding: 20px 20px 0 0;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
 
 }
