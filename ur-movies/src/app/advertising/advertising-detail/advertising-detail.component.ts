@@ -113,6 +113,7 @@ export class AdvertisingDetailComponent implements OnInit {
   async uploadImage() {
     const file = this.selectedFiles.item(0);
     const URL = await this.S3UploaderService.uploadFile(file);
+    this._snackBar.dismiss();
     console.log("After upload, URL:", URL);
     this.form.value.imageUrl = URL;
     console.log("this.form.value.imageUrl:", this.form.value.imageUrl)
