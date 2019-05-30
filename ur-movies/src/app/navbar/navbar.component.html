@@ -2,19 +2,28 @@
   <mat-toolbar-row>
     <img lass="menu-logo" src="../../assets/image/logo/ur_movies_logo_w.png" alt="Logo">
     <span class="menu-subtitle">Admin System</span>
-    <button routerLink="/" mat-raised-button>Dashboard</button>
+    <button routerLink="/" mat-raised-button>
+      <mat-icon aria-hidden="true">dashboard</mat-icon>
+      Dashboard
+    </button>
 
 
-    <button mat-button [matMenuTriggerFor]="managementMenu">Management</button>
+    <button mat-button [matMenuTriggerFor]="managementMenu">
+      <mat-icon aria-hidden="true">next_week</mat-icon>
+      Management
+    </button>
     <mat-menu #managementMenu="matMenu">
-      <button mat-menu-item routerLink="/advertisings/list"> Advertising</button>
-      <button mat-menu-item routerLink="/customer"> Customer</button>
-      <button mat-menu-item routerLink="/product"> Product</button>
+      <button class="no-margin" mat-menu-item routerLink="/advertisings/list"> Advertising</button>
+      <button class="no-margin" mat-menu-item routerLink="/customer"> Customer</button>
+      <button class="no-margin" mat-menu-item routerLink="/product"> Product</button>
     </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="profileMenu">Profile</button>
+
+    <button mat-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon aria-hidden="true">assignment_ind</mat-icon> Profile
+    </button>
     <mat-menu #profileMenu="matMenu">
-      <button mat-menu-item routerLink="/customer"> My Info</button>
+      <button mat-menu-item routerLink="/customer">My Info</button>
       <button mat-menu-item routerLink="/customer"> Register</button>
       <button mat-menu-item routerLink="/customer"> Sign In</button>
       <button mat-menu-item routerLink="/customer"> Sign Out</button>

@@ -48,8 +48,7 @@ tr.table-element-row:not(.table-expanded-row):active {
 
 .table-element-diagram {
   width: 200px;
-  height: 150px;
-  border: 1px solid black;
+  max-height: 150px;
 }
 
 

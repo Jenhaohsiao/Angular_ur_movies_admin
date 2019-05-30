@@ -5,6 +5,7 @@ import { Advertising } from '../advertising.model';
 import { FormBuilder, Form, Validators, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { S3UploaderService } from 'src/app/services/s3-uploader.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-advertising-detail',
@@ -15,6 +16,10 @@ export class AdvertisingDetailComponent implements OnInit {
   private id: string;
   private isEdit = false;
   public selectedFiles: FileList;
+  public selectedFileName: string = "Choose a file";
+  private snackBarDurationInSeconds = 2;
+  private snackBarMessage = '';
+
   public form: FormGroup;
 
   constructor(
@@ -22,7 +27,9 @@ export class AdvertisingDetailComponent implements OnInit {
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     private fromBuilder: FormBuilder,
-    private S3UploaderService: S3UploaderService
+    private S3UploaderService: S3UploaderService,
+    private _snackBar: MatSnackBar,
+
   ) { }
 
   ngOnInit() {
@@ -60,13 +67,25 @@ export class AdvertisingDetailComponent implements OnInit {
     console.log("save:", this.form.value);
     if (this.isEdit) {
       this._advertisingService.updateAdvertising(this.form.value)
-        .subscribe(() => {
-          this.back();
-        });
+        .subscribe(
+          res => {
+            console.log(res);
+
+            this.snackBarMessage = "The Data saved successfully"
+            this._snackBar.open(this.snackBarMessage, null, {
+              duration: this.snackBarDurationInSeconds * 1000,
+            });
+
+          },
+          err => console.log(err)
+
+        );
+
     } else {
       this._advertisingService.createAdvertising(this.form.value)
         .subscribe(() => {
-          this.back();
+          // this.back();
+
         });
     }
   }
@@ -95,6 +114,8 @@ export class AdvertisingDetailComponent implements OnInit {
   }
 
   selectFile(event) {
+    this.selectedFileName = event.target.files[0].name;
+
     this.selectedFiles = event.target.files;
   }
 

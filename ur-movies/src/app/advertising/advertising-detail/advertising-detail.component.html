@@ -1,10 +1,10 @@
-<div class="content-container">
+<div class="container">
 
   <form [formGroup]="form">
     <h3 class="sub-title">
       Advertising Edit
     </h3>
-    <mat-card class="card-container ">
+    <mat-card class="mat-elevation-z8 ">
       <div class="form-container">
 
         <mat-form-field>
@@ -19,28 +19,42 @@
           <textarea formControlName="description" matInput placeholder="Description"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
-          <input formControlName="startDate" matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
-          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #startDatePicker></mat-datepicker>
-        </mat-form-field>
+        <div>
+          <mat-form-field class="col-6 no-padding">
+            <input formControlName="startDate" matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" placeholder="End Date">
-          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #endDatePicker></mat-datepicker>
-        </mat-form-field>
+          <mat-form-field class="col-6 no-padding">
+            <input formControlName="endDate" matInput [matDatepicker]="endDatePicker" placeholder="End Date">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
 
+        </div>
         <div> <img class="image-preview-200-150" src="{{form.value.imageUrl}} " alt="Italian Trulli"></div>
 
       </div>
 
-      <div>
-        <label class="btn btn-default">
-          <input type="file" (change)="selectFile($event)">
-        </label>
-        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">Upload Image</button>
+      <div class="row upload-section ">
+        <div class="col-8 custom-file">
+          <input (change)="selectFile($event)" type="file" class="custom-file-input" id="validatedCustomFile">
+          <label class="custom-file-label" for="validatedCustomFile">{{selectedFileName}}</label>
+          <div class="invalid-feedback">Example invalid custom file feedback</div>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">Upload</button>
+        </div>
       </div>
+
+
+      <!-- ========New -->
+
+
+
+      <!-- ========New end-->
+
     </mat-card>
 
     <div class="button-bottom-left">
@@ -54,5 +68,7 @@
         <mat-icon aria-label="add new">save</mat-icon>
       </button>
     </div>
+
+
   </form>
 </div>

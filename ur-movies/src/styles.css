@@ -10,22 +10,38 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* For remove blue color outline when user push any button */
 
+*:focus {
+  outline: none !important;
+  border: 0 !important;
+}
+
+/* For remove blue color outline when user push any button -end*/
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
 
 .sub-title {
   font-size: 30px;
+  color: rgb(50, 52, 150);
+  margin: 20px 0;
 }
 
 .button-bottom-right {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 2rem;
+  right: 5rem;
 }
 
 .button-bottom-left {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 2rem;
+  left: 5rem;
 }
 
 .form-container {

@@ -21,11 +21,10 @@ export class AdvertisingListComponent implements OnInit {
 
 
   public columnsToDisplay: string[] = ['name', 'startDate', 'endDate'];
-
   public errorMsg;
   public advertisingList = new MatTableDataSource<Advertising>();
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
   constructor(
