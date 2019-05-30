@@ -69,9 +69,8 @@ export class AdvertisingDetailComponent implements OnInit {
       this._advertisingService.updateAdvertising(this.form.value)
         .subscribe(
           res => {
-            console.log(res);
-
-            this.snackBarMessage = "The Data saved successfully"
+            console.log("After update,res:", res);
+            this.snackBarMessage = "The Data updated successfully"
             this._snackBar.open(this.snackBarMessage, null, {
               duration: this.snackBarDurationInSeconds * 1000,
             });
@@ -83,17 +82,24 @@ export class AdvertisingDetailComponent implements OnInit {
 
     } else {
       this._advertisingService.createAdvertising(this.form.value)
-        .subscribe(() => {
-          // this.back();
+        .subscribe(
+          res => {
+            console.log("After save,res:", res);
+            this.snackBarMessage = "The Data saved successfully"
+            this._snackBar.open(this.snackBarMessage, null, {
+              duration: this.snackBarDurationInSeconds * 1000,
+            });
 
-        });
+          },
+          err => console.log(err)
+
+        );
     }
   }
 
 
   private initForm(): void {
     this.form = this.fromBuilder.group({
-
       _id: '',
       name: ['', Validators.required],
       title: ['', Validators.required],
